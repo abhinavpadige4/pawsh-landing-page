@@ -11,226 +11,220 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="font-poppins bg-neutral-light text-neutral-dark">
-<header class="site-header" role="banner">
-<nav class="site-nav" aria-label="Main navigation">
-<div class="nav-container">
-<a href="/" class="nav-logo" aria-label="Pawsh Home">
-<img src="assets/logo.png" alt="Pawsh Dog Grooming Salon Logo" class="logo-img">
+<body class="font-poppins">
+<header class="header" role="banner">
+<nav class="nav" aria-label="Main navigation">
+<div class="nav__container">
+<a href="/" class="nav__logo" aria-label="Pawsh Home">
+<img src="assets/logo.png" alt="Pawsh Logo" class="nav__logo-img">
 </a>
-<button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
-<span class="nav-toggle-bar"></span>
-<span class="nav-toggle-bar"></span>
-<span class="nav-toggle-bar"></span>
+<button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+<span class="nav__toggle-bar"></span>
+<span class="nav__toggle-bar"></span>
+<span class="nav__toggle-bar"></span>
 </button>
-<ul id="nav-menu" class="nav-menu" role="menubar">
-<li role="none"><a href="#services" role="menuitem" class="nav-link">Services</a></li>
-<li role="none"><a href="#gallery" role="menuitem" class="nav-link">Gallery</a></li>
-<li role="none"><a href="#testimonials" role="menuitem" class="nav-link">Reviews</a></li>
-<li role="none"><a href="#booking" role="menuitem" class="nav-link">Book Now</a></li>
+<ul class="nav__menu" id="navMenu">
+<li><a href="#services" class="nav__link">Services</a></li>
+<li><a href="#gallery" class="nav__link">Gallery</a></li>
+<li><a href="#testimonials" class="nav__link">Testimonials</a></li>
+<li><a href="#contact" class="nav__link">Contact</a></li>
+<li><a href="#contact" class="nav__cta">Book Now</a></li>
 </ul>
 </div>
 </nav>
 </header>
 <main role="main">
-<section class="hero" aria-label="Welcome to Pawsh">
-<div class="hero-overlay"></div>
-<div class="hero-content">
-<h1 class="hero-title">Give Your Dog the <span class="text-accent">Pawsh</span> Treatment</h1>
-<p class="hero-subtitle">Premium grooming services that leave your furry friend looking and feeling their absolute best.</p>
-<a href="#booking" class="btn btn-primary hero-cta">Book an Appointment</a>
+<section class="hero" id="hero" aria-label="Welcome to Pawsh">
+<div class="hero__overlay"></div>
+<div class="hero__content">
+<h1 class="hero__title">Where Every Dog Gets the <span class="hero__highlight">Royal Treatment</span></h1>
+<p class="hero__subtitle">Premium grooming services that leave your furry friend looking and feeling their absolute best.</p>
+<div class="hero__actions">
+<a href="#contact" class="btn btn--primary">Book an Appointment</a>
+<a href="#services" class="btn btn--outline">View Services</a>
 </div>
-</section>
-<section id="services" class="services" aria-label="Our Grooming Services">
-<div class="container">
-<h2 class="section-title">Our Services</h2>
-<p class="section-subtitle">Expert care tailored to every breed and coat type</p>
-<div class="services-grid">
-<article class="service-card">
-<div class="service-card-img">
-<img src="assets/service-bath.jpg" alt="Dog receiving a bath and brush treatment" loading="lazy">
-</div>
-<div class="service-card-body">
-<h3 class="service-card-title">Bath & Brush</h3>
-<p class="service-card-desc">A refreshing bath with premium shampoo, thorough brushing, and a blow-dry finish.</p>
-<span class="service-card-price">From $45</span>
-</div>
-</article>
-<article class="service-card">
-<div class="service-card-img">
-<img src="assets/service-fullgroom.jpg" alt="Dog after a full grooming session" loading="lazy">
-</div>
-<div class="service-card-body">
-<h3 class="service-card-title">Full Groom</h3>
-<p class="service-card-desc">Complete grooming including bath, haircut, nail trim, ear cleaning, and styling.</p>
-<span class="service-card-price">From $85</span>
-</div>
-</article>
-<article class="service-card">
-<div class="service-card-img">
-<img src="assets/service-nailtrim.jpg" alt="Close-up of dog nail trimming" loading="lazy">
-</div>
-<div class="service-card-body">
-<h3 class="service-card-title">Nail Trim</h3>
-<p class="service-card-desc">Gentle nail trimming and filing to keep your dog comfortable and healthy.</p>
-<span class="service-card-price">From $20</span>
-</div>
-</article>
-<article class="service-card">
-<div class="service-card-img">
-<img src="assets/service-deshed.jpg" alt="Dog undergoing de-shedding treatment" loading="lazy">
-</div>
-<div class="service-card-body">
-<h3 class="service-card-title">De-Shedding</h3>
-<p class="service-card-desc">Specialized treatment to reduce shedding and keep your home fur-free.</p>
-<span class="service-card-price">From $65</span>
-</div>
-</article>
+<div class="hero__stats">
+<div class="hero__stat"><span class="hero__stat-number">500+</span><span class="hero__stat-label">Happy Dogs</span></div>
+<div class="hero__stat"><span class="hero__stat-number">5★</span><span class="hero__stat-label">Rating</span></div>
+<div class="hero__stat"><span class="hero__stat-number">8+</span><span class="hero__stat-label">Years Experience</span></div>
 </div>
 </div>
 </section>
-<section id="gallery" class="gallery" aria-label="Before and After Gallery">
-<div class="container">
+<section class="services" id="services" aria-label="Our Services">
+<div class="section-header">
+<h2 class="section-title">Our Grooming Services</h2>
+<p class="section-subtitle">From basic baths to full spa treatments, we have everything your pup needs.</p>
+</div>
+<div class="services__grid">
+<article class="service-card">
+<div class="service-card__img"><img src="assets/service-bath.jpg" alt="Bath and Brush service" loading="lazy"></div>
+<div class="service-card__body">
+<h3 class="service-card__title">Bath & Brush</h3>
+<p class="service-card__desc">A refreshing bath with premium shampoo, thorough brushing, and a finishing spray for that fresh look.</p>
+<span class="service-card__price">From $35</span>
+</div>
+</article>
+<article class="service-card">
+<div class="service-card__img"><img src="assets/service-fullgroom.jpg" alt="Full Groom service" loading="lazy"></div>
+<div class="service-card__body">
+<h3 class="service-card__title">Full Groom</h3>
+<p class="service-card__desc">Complete grooming experience including bath, haircut, nail trim, ear cleaning, and styling.</p>
+<span class="service-card__price">From $75</span>
+</div>
+</article>
+<article class="service-card">
+<div class="service-card__img"><img src="assets/service-nailtrim.jpg" alt="Nail Trim service" loading="lazy"></div>
+<div class="service-card__body">
+<h3 class="service-card__title">Nail Trim</h3>
+<p class="service-card__desc">Gentle nail trimming and filing to keep your dog comfortable and prevent overgrowth issues.</p>
+<span class="service-card__price">From $20</span>
+</div>
+</article>
+<article class="service-card">
+<div class="service-card__img"><img src="assets/service-deshed.jpg" alt="De-Shedding service" loading="lazy"></div>
+<div class="service-card__body">
+<h3 class="service-card__title">De-Shedding</h3>
+<p class="service-card__desc">Specialized treatment to reduce shedding, remove loose fur, and promote a healthy coat.</p>
+<span class="service-card__price">From $55</span>
+</div>
+</article>
+</div>
+</section>
+<section class="gallery" id="gallery" aria-label="Before and After Gallery">
+<div class="section-header">
 <h2 class="section-title">Before & After</h2>
-<p class="section-subtitle">See the transformation for yourself</p>
-<div class="gallery-grid">
-<div class="gallery-item">
-<div class="gallery-before">
-<img src="assets/before1.jpg" alt="Dog before grooming - session 1" loading="lazy">
-<span class="gallery-label">Before</span>
+<p class="section-subtitle">See the transformation your dog can experience at Pawsh.</p>
 </div>
-<div class="gallery-after">
-<img src="assets/after1.jpg" alt="Dog after grooming - session 1" loading="lazy">
-<span class="gallery-label">After</span>
+<div class="gallery__grid">
+<div class="gallery__item">
+<div class="gallery__before"><img src="assets/before1.jpg" alt="Before grooming - dog 1" loading="lazy"><span class="gallery__label">Before</span></div>
+<div class="gallery__after"><img src="assets/after1.jpg" alt="After grooming - dog 1" loading="lazy"><span class="gallery__label gallery__label--after">After</span></div>
 </div>
-</div>
-<div class="gallery-item">
-<div class="gallery-before">
-<img src="assets/before2.jpg" alt="Dog before grooming - session 2" loading="lazy">
-<span class="gallery-label">Before</span>
-</div>
-<div class="gallery-after">
-<img src="assets/after2.jpg" alt="Dog after grooming - session 2" loading="lazy">
-<span class="gallery-label">After</span>
-</div>
-</div>
+<div class="gallery__item">
+<div class="gallery__before"><img src="assets/before2.jpg" alt="Before grooming - dog 2" loading="lazy"><span class="gallery__label">Before</span></div>
+<div class="gallery__after"><img src="assets/after2.jpg" alt="After grooming - dog 2" loading="lazy"><span class="gallery__label gallery__label--after">After</span></div>
 </div>
 </div>
 </section>
-<section id="testimonials" class="testimonials" aria-label="Customer Testimonials">
-<div class="container">
+<section class="testimonials" id="testimonials" aria-label="Customer Testimonials">
+<div class="section-header">
 <h2 class="section-title">What Pet Parents Say</h2>
-<div class="testimonial-slider" role="region" aria-label="Testimonials carousel">
-<div class="testimonial-track">
-<div class="testimonial-slide" role="group" aria-label="Testimonial 1 of 2">
-<div class="testimonial-card">
-<img src="assets/testimonial1.jpg" alt="Photo of happy customer" class="testimonial-avatar" loading="lazy">
-<blockquote class="testimonial-text">"Pawsh transformed my golden retriever! She comes home looking like a show dog every time. The staff is incredibly gentle and professional."</blockquote>
-<cite class="testimonial-author">— Sarah M., Golden Retriever Mom</cite>
+<p class="section-subtitle">Don't just take our word for it — hear from our happy customers.</p>
 </div>
+<div class="testimonials__slider" id="testimonialSlider">
+<div class="testimonials__track" id="testimonialTrack">
+<article class="testimonial-card">
+<div class="testimonial-card__avatar"><img src="assets/testimonial1.jpg" alt="Sarah M."></div>
+<div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+<blockquote class="testimonial-card__text">"Pawsh is absolutely amazing! My golden retriever comes home looking like a show dog every time. The staff is so gentle and patient with him."</blockquote>
+<p class="testimonial-card__author">— Sarah M., Golden Retriever Mom</p>
+</article>
+<article class="testimonial-card">
+<div class="testimonial-card__avatar"><img src="assets/testimonial2.jpg" alt="James K."></div>
+<div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+<blockquote class="testimonial-card__text">"I've tried many groomers but none compare to Pawsh. My anxious rescue dog actually gets excited to go there. Incredible work!"</blockquote>
+<p class="testimonial-card__author">— James K., Rescue Dad</p>
+</article>
+<article class="testimonial-card">
+<div class="testimonial-card__avatar"><img src="assets/testimonial1.jpg" alt="Emily R."></div>
+<div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+<blockquote class="testimonial-card__text">"The de-shedding treatment is a game changer. My living room is finally free of fur! Professional, friendly, and worth every penny."</blockquote>
+<p class="testimonial-card__author">— Emily R., Husky Owner</p>
+</article>
 </div>
-<div class="testimonial-slide" role="group" aria-label="Testimonial 2 of 2">
-<div class="testimonial-card">
-<img src="assets/testimonial2.jpg" alt="Photo of happy customer" class="testimonial-avatar" loading="lazy">
-<blockquote class="testimonial-text">"The de-shedding treatment is a game changer. My apartment is finally fur-free and my lab looks amazing. Highly recommend Pawsh!"</blockquote>
-<cite class="testimonial-author">— James K., Lab Dad</cite>
-</div>
-</div>
-</div>
-<div class="testimonial-nav" aria-label="Testimonial navigation">
-<button class="testimonial-prev" aria-label="Previous testimonial">&larr;</button>
-<button class="testimonial-next" aria-label="Next testimonial">&rarr;</button>
-</div>
+<div class="testimonials__controls">
+<button class="testimonials__btn testimonials__btn--prev" id="prevBtn" aria-label="Previous testimonial">‹</button>
+<div class="testimonials__dots" id="testimonialDots"></div>
+<button class="testimonials__btn testimonials__btn--next" id="nextBtn" aria-label="Next testimonial">›</button>
 </div>
 </div>
 </section>
-<section id="booking" class="booking" aria-label="Book an Appointment">
-<div class="container">
+<section class="contact" id="contact" aria-label="Contact and Booking">
+<div class="section-header">
 <h2 class="section-title">Book Your Appointment</h2>
-<p class="section-subtitle">Schedule a grooming session for your furry friend today</p>
-<form id="booking-form" class="booking-form" novalidate>
-<div class="form-row">
+<p class="section-subtitle">Give your pup the grooming experience they deserve. Fill out the form below!</p>
+</div>
+<div class="contact__grid">
+<form class="contact__form" id="bookingForm" novalidate>
 <div class="form-group">
-<label for="owner-name" class="form-label">Your Name</label>
-<input type="text" id="owner-name" name="ownerName" class="form-input" placeholder="Enter your name" required aria-required="true">
+<label for="ownerName" class="form-label">Owner Name</label>
+<input type="text" id="ownerName" name="ownerName" class="form-input" placeholder="Your name" required aria-required="true">
+<span class="form-error" id="ownerNameError"></span>
 </div>
 <div class="form-group">
-<label for="owner-phone" class="form-label">Phone Number</label>
-<input type="tel" id="owner-phone" name="ownerPhone" class="form-input" placeholder="(555) 123-4567" required aria-required="true">
-</div>
-</div>
-<div class="form-row">
-<div class="form-group">
-<label for="dog-name" class="form-label">Dog's Name</label>
-<input type="text" id="dog-name" name="dogName" class="form-input" placeholder="Your dog's name" required aria-required="true">
+<label for="email" class="form-label">Email</label>
+<input type="email" id="email" name="email" class="form-input" placeholder="you@example.com" required aria-required="true">
+<span class="form-error" id="emailError"></span>
 </div>
 <div class="form-group">
-<label for="service-select" class="form-label">Service</label>
-<select id="service-select" name="service" class="form-input" required aria-required="true">
+<label for="phone" class="form-label">Phone</label>
+<input type="tel" id="phone" name="phone" class="form-input" placeholder="(555) 123-4567" required aria-required="true">
+<span class="form-error" id="phoneError"></span>
+</div>
+<div class="form-group">
+<label for="dogName" class="form-label">Dog's Name</label>
+<input type="text" id="dogName" name="dogName" class="form-input" placeholder="Your dog's name" required aria-required="true">
+<span class="form-error" id="dogNameError"></span>
+</div>
+<div class="form-group">
+<label for="service" class="form-label">Service</label>
+<select id="service" name="service" class="form-input" required aria-required="true">
 <option value="">Select a service</option>
-<option value="bath-brush">Bath & Brush</option>
-<option value="full-groom">Full Groom</option>
-<option value="nail-trim">Nail Trim</option>
-<option value="de-shedding">De-Shedding</option>
+<option value="bath">Bath & Brush</option>
+<option value="fullgroom">Full Groom</option>
+<option value="nailtrim">Nail Trim</option>
+<option value="deshed">De-Shedding</option>
 </select>
-</div>
-</div>
-<div class="form-row">
-<div class="form-group">
-<label for="preferred-date" class="form-label">Preferred Date</label>
-<input type="date" id="preferred-date" name="preferredDate" class="form-input" required aria-required="true">
+<span class="form-error" id="serviceError"></span>
 </div>
 <div class="form-group">
-<label for="preferred-time" class="form-label">Preferred Time</label>
-<select id="preferred-time" name="preferredTime" class="form-input" required aria-required="true">
-<option value="">Select a time</option>
-<option value="9:00">9:00 AM</option>
-<option value="10:00">10:00 AM</option>
-<option value="11:00">11:00 AM</option>
-<option value="13:00">1:00 PM</option>
-<option value="14:00">2:00 PM</option>
-<option value="15:00">3:00 PM</option>
-</select>
+<label for="preferredDate" class="form-label">Preferred Date</label>
+<input type="date" id="preferredDate" name="preferredDate" class="form-input" required aria-required="true">
+<span class="form-error" id="preferredDateError"></span>
 </div>
-</div>
-<div class="form-group">
-<label for="notes" class="form-label">Special Notes</label>
-<textarea id="notes" name="notes" class="form-input form-textarea" rows="3" placeholder="Any special instructions about your dog..."></textarea>
-</div>
-<button type="submit" class="btn btn-primary form-submit">Confirm Booking</button>
-<p id="form-message" class="form-message" role="alert" aria-live="polite"></p>
+<button type="submit" class="btn btn--primary btn--full">Request Appointment</button>
+<p class="form-success" id="formSuccess" role="alert" hidden>Thank you! We'll contact you within 24 hours to confirm your booking.</p>
 </form>
+<div class="contact__info">
+<h3 class="contact__info-title">Visit Us</h3>
+<p class="contact__info-text">📍 123 Bark Avenue, Petville, CA 90210</p>
+<p class="contact__info-text">📞 (555) 123-4567</p>
+<p class="contact__info-text">✉️ hello@pawshsalon.com</p>
+<h3 class="contact__info-title contact__info-title--mt">Hours</h3>
+<p class="contact__info-text">Mon–Fri: 8:00 AM – 7:00 PM</p>
+<p class="contact__info-text">Saturday: 9:00 AM – 5:00 PM</p>
+<p class="contact__info-text">Sunday: Closed</p>
+</div>
 </div>
 </section>
 </main>
-<footer class="site-footer" role="contentinfo">
-<div class="container">
-<div class="footer-grid">
-<div class="footer-col">
-<a href="/" class="footer-logo" aria-label="Pawsh Home">
-<img src="assets/logo.png" alt="Pawsh Logo" class="logo-img">
-</a>
-<p class="footer-tagline">Premium grooming with love, since 2019.</p>
+<footer class="footer" role="contentinfo">
+<div class="footer__container">
+<div class="footer__top">
+<div class="footer__brand">
+<img src="assets/logo.png" alt="Pawsh Logo" class="footer__logo">
+<p class="footer__tagline">Premium grooming for happy, healthy dogs.</p>
 </div>
-<div class="footer-col">
-<h4 class="footer-heading">Hours</h4>
-<ul class="footer-list">
-<li>Mon–Fri: 8 AM – 6 PM</li>
-<li>Saturday: 9 AM – 4 PM</li>
-<li>Sunday: Closed</li>
+<div class="footer__links">
+<h4 class="footer__heading">Quick Links</h4>
+<ul class="footer__list">
+<li><a href="#services" class="footer__link">Services</a></li>
+<li><a href="#gallery" class="footer__link">Gallery</a></li>
+<li><a href="#testimonials" class="footer__link">Testimonials</a></li>
+<li><a href="#contact" class="footer__link">Book Now</a></li>
 </ul>
 </div>
-<div class="footer-col">
-<h4 class="footer-heading">Contact</h4>
-<ul class="footer-list">
-<li><a href="tel:+15551234567" class="footer-link">(555) 123-4567</a></li>
-<li><a href="mailto:hello@pawshsalon.com" class="footer-link">hello@pawshsalon.com</a></li>
-<li>123 Bark Avenue, Petville</li>
-</ul>
+<div class="footer__social">
+<h4 class="footer__heading">Follow Us</h4>
+<div class="footer__social-links">
+<a href="#" class="footer__social-link" aria-label="Facebook">Facebook</a>
+<a href="#" class="footer__social-link" aria-label="Instagram">Instagram</a>
+<a href="#" class="footer__social-link" aria-label="TikTok">TikTok</a>
 </div>
 </div>
-<div class="footer-bottom">
-<p>&copy; 2024 Pawsh Dog Grooming Salon. All rights reserved.</p>
+</div>
+<div class="footer__bottom">
+<p class="footer__copyright">&copy; 2024 Pawsh Dog Grooming Salon. All rights reserved.</p>
 </div>
 </div>
 </footer>
