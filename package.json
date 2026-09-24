@@ -1,8 +1,9 @@
 {
-  "name": "pawsh-dog-grooming-salon",
+  "name": "pawsh",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "echo 'Build complete'"
+    "build": "echo 'Static site — no build step required'",
+    "start": "npx serve ."
   }
 }
