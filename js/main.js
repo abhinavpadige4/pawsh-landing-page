@@ -1,99 +1,92 @@
-/* Pawsh Dog Grooming Salon - Main JavaScript
-   Handles: initialization, mobile menu toggle, lazy-load observer,
-   smooth scrolling, and global behaviors.
-*/
+/* Pawsh Dog Grooming Salon — main.js
+   Initialization, mobile menu toggle, lazy-load observer */
 
 (function () {
   'use strict';
 
-  // ── DOM Ready ──────────────────────────────────────────────────────────────
+  // ── DOM Ready ──────────────────────────────────────────────
   function init() {
-    setupMobileMenu();
-    setupLazyLoad();
-    setupSmoothScroll();
-    setupScrollReveal();
-    setupStickyHeader();
+    initMobileMenu();
+    initLazyLoad();
+    initSmoothScroll();
+    initScrollReveal();
+    initBookingModal();
+    initStickyCTA();
   }
 
-  // ── Mobile Menu Toggle ─────────────────────────────────────────────────────
-  function setupMobileMenu() {
-    const toggleBtn = document.querySelector('[data-menu-toggle]');
-    const navMenu = document.querySelector('[data-nav-menu]');
-    const navLinks = document.querySelectorAll('[data-nav-link]');
+  // ── Mobile Menu Toggle ─────────────────────────────────────
+  function initMobileMenu() {
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('main-nav');
+    const overlay = document.getElementById('nav-overlay');
+    const body = document.body;
 
-    if (!toggleBtn || !navMenu) return;
+    if (!toggle || !nav) return;
 
-    toggleBtn.addEventListener('click', function (e) {
-      e.preventDefault();
-      const isOpen = navMenu.classList.toggle('is-open');
-      toggleBtn.classList.toggle('is-active');
-      toggleBtn.setAttribute('aria-expanded', String(isOpen));
-      toggleBtn.setAttribute(
-        'aria-label',
-        isOpen ? 'Close navigation menu' : 'Open navigation menu'
-      );
+    function openMenu() {
+      nav.classList.add('is-open');
+      toggle.classList.add('is-active');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Close navigation menu');
+      if (overlay) overlay.classList.add('is-visible');
+      body.classList.add('no-scroll');
+    }
 
-      // Lock body scroll when menu is open
-      document.body.classList.toggle('overflow-hidden', isOpen);
+    function closeMenu() {
+      nav.classList.remove('is-open');
+      toggle.classList.remove('is-active');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open navigation menu');
+      if (overlay) overlay.classList.remove('is-visible');
+      body.classList.remove('no-scroll');
+    }
+
+    toggle.addEventListener('click', function () {
+      const isOpen = nav.classList.contains('is-open');
+      isOpen ? closeMenu() : openMenu();
     });
 
-    // Close menu when a nav link is clicked
-    navLinks.forEach(function (link) {
-      link.addEventListener('click', function () {
-        navMenu.classList.remove('is-open');
-        toggleBtn.classList.remove('is-active');
-        toggleBtn.setAttribute('aria-expanded', 'false');
-        toggleBtn.setAttribute('aria-label', 'Open navigation menu');
-        document.body.classList.remove('overflow-hidden');
-      });
-    });
+    // Close on overlay click
+    if (overlay) {
+      overlay.addEventListener('click', closeMenu);
+    }
 
-    // Close menu on Escape key
+    // Close on Escape key
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && navMenu.classList.contains('is-open')) {
-        navMenu.classList.remove('is-open');
-        toggleBtn.classList.remove('is-active');
-        toggleBtn.setAttribute('aria-expanded', 'false');
-        toggleBtn.setAttribute('aria-label', 'Open navigation menu');
-        document.body.classList.remove('overflow-hidden');
-        toggleBtn.focus();
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+        closeMenu();
+        toggle.focus();
       }
     });
 
-    // Close menu when clicking outside
-    document.addEventListener('click', function (e) {
-      if (
-        navMenu.classList.contains('is-open') &&
-        !navMenu.contains(e.target) &&
-        !toggleBtn.contains(e.target)
-      ) {
-        navMenu.classList.remove('is-open');
-        toggleBtn.classList.remove('is-active');
-        toggleBtn.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('overflow-hidden');
-      }
+    // Close when a nav link is clicked (mobile)
+    nav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Reset menu state on resize to desktop
+    let resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        if (window.innerWidth >= 768) {
+          closeMenu();
+        }
+      }, 150);
     });
   }
 
-  // ── Lazy-Load Observer ─────────────────────────────────────────────────────
-  function setupLazyLoad() {
+  // ── Lazy-Load Observer ─────────────────────────────────────
+  function initLazyLoad() {
     const lazyImages = document.querySelectorAll('img[data-src]');
 
     if (!lazyImages.length) return;
 
-    // Set initial state
-    lazyImages.forEach(function (img) {
-      img.setAttribute('loading', 'lazy');
-      img.style.opacity = '0';
-      img.style.transition = 'opacity 0.4s ease';
-    });
-
+    // Fallback: if IntersectionObserver is not supported, load all
     if (!('IntersectionObserver' in window)) {
-      // Fallback: load all images immediately
       lazyImages.forEach(function (img) {
         img.src = img.getAttribute('data-src');
         img.removeAttribute('data-src');
-        img.style.opacity = '1';
       });
       return;
     }
@@ -121,13 +114,8 @@
             }
 
             img.addEventListener('load', function () {
-              img.style.opacity = '1';
+              img.classList.add('is-loaded');
             });
-
-            // Handle cached images that fire load immediately
-            if (img.complete && img.naturalWidth > 0) {
-              img.style.opacity = '1';
-            }
 
             observer.unobserve(img);
           }
@@ -144,63 +132,62 @@
     });
   }
 
-  // ── Smooth Scroll ──────────────────────────────────────────────────────────
-  function setupSmoothScroll() {
-    const smoothLinks = document.querySelectorAll('a[href^="#"]');
+  // ── Smooth Scroll ──────────────────────────────────────────
+  function initSmoothScroll() {
+    const links = document.querySelectorAll('a[href^="#"]');
 
-    smoothLinks.forEach(function (link) {
+    links.forEach(function (link) {
       link.addEventListener('click', function (e) {
-        const href = link.getAttribute('href');
-        if (href === '#') return;
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
 
-        const target = document.querySelector(href);
+        const target = document.querySelector(targetId);
         if (!target) return;
 
         e.preventDefault();
 
-        const headerOffset = 80;
-        const elementPosition = target.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        const headerHeight = 80;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
 
         window.scrollTo({
-          top: offsetPosition,
+          top: targetPosition,
           behavior: 'smooth'
         });
 
-        // Update URL hash without jumping
+        // Update URL hash without jump
         if (history.pushState) {
-          history.pushState(null, null, href);
+          history.pushState(null, null, targetId);
         }
       });
     });
   }
 
-  // ── Scroll Reveal Animations ───────────────────────────────────────────────
-  function setupScrollReveal() {
+  // ── Scroll Reveal Animations ───────────────────────────────
+  function initScrollReveal() {
     const revealElements = document.querySelectorAll('[data-reveal]');
 
     if (!revealElements.length) return;
 
     if (!('IntersectionObserver' in window)) {
       revealElements.forEach(function (el) {
-        el.classList.add('is-visible');
+        el.classList.add('is-revealed');
       });
       return;
     }
 
     const revealObserver = new IntersectionObserver(
-      function (entries, observer) {
+      function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
             const delay = entry.target.getAttribute('data-reveal-delay') || '0';
             entry.target.style.transitionDelay = delay + 'ms';
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
+            entry.target.classList.add('is-revealed');
+            revealObserver.unobserve(entry.target);
           }
         });
       },
       {
-        rootMargin: '0px 0px -50px 0px',
+        rootMargin: '0px 0px -60px 0px',
         threshold: 0.1
       }
     );
@@ -210,47 +197,194 @@
     });
   }
 
-  // ── Sticky Header ──────────────────────────────────────────────────────────
-  function setupStickyHeader() {
-    const header = document.querySelector('[data-header]');
-    if (!header) return;
+  // ── Booking Modal ──────────────────────────────────────────
+  function initBookingModal() {
+    const openBtns = document.querySelectorAll('[data-open-modal]');
+    const modal = document.getElementById('booking-modal');
+    const closeBtn = document.getElementById('modal-close');
+    const overlay = document.getElementById('modal-overlay');
+    const body = document.body;
 
-    let lastScroll = 0;
+    if (!modal) return;
+
+    function openModal() {
+      modal.classList.add('is-open');
+      body.classList.add('no-scroll');
+      // Focus first focusable element
+      setTimeout(function () {
+        const firstInput = modal.querySelector('input, select, textarea, button');
+        if (firstInput) firstInput.focus();
+      }, 100);
+    }
+
+    function closeModal() {
+      modal.classList.remove('is-open');
+      body.classList.remove('no-scroll');
+    }
+
+    openBtns.forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        openModal();
+      });
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeModal);
+    }
+
+    if (overlay) {
+      overlay.addEventListener('click', closeModal);
+    }
+
+    // Trap focus inside modal
+    modal.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeModal();
+        return;
+      }
+      if (e.key !== 'Tab') return;
+
+      const focusable = modal.querySelectorAll(
+        'button, input, select, textarea, a[href], [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusable.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
+
+    // Form submission
+    const form = document.getElementById('booking-form');
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const name = form.querySelector('#booking-name');
+        const email = form.querySelector('#booking-email');
+        const phone = form.querySelector('#booking-phone');
+        const service = form.querySelector('#booking-service');
+        const date = form.querySelector('#booking-date');
+        const notes = form.querySelector('#booking-notes');
+        const errorContainer = document.getElementById('form-errors');
+        const successContainer = document.getElementById('form-success');
+
+        // Clear previous errors
+        if (errorContainer) errorContainer.innerHTML = '';
+        if (successContainer) successContainer.classList.remove('is-visible');
+
+        let errors = [];
+
+        if (name && !name.value.trim()) {
+          errors.push('Please enter your name.');
+          name.classList.add('has-error');
+        } else if (name) {
+          name.classList.remove('has-error');
+        }
+
+        if (email && !email.value.trim()) {
+          errors.push('Please enter your email.');
+          email.classList.add('has-error');
+        } else if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+          errors.push('Please enter a valid email address.');
+          email.classList.add('has-error');
+        } else if (email) {
+          email.classList.remove('has-error');
+        }
+
+        if (phone && !phone.value.trim()) {
+          errors.push('Please enter your phone number.');
+          phone.classList.add('has-error');
+        } else if (phone) {
+          phone.classList.remove('has-error');
+        }
+
+        if (service && !service.value) {
+          errors.push('Please select a service.');
+          service.classList.add('has-error');
+        } else if (service) {
+          service.classList.remove('has-error');
+        }
+
+        if (date && !date.value) {
+          errors.push('Please select a preferred date.');
+          date.classList.add('has-error');
+        } else if (date) {
+          date.classList.remove('has-error');
+        }
+
+        if (errors.length > 0) {
+          if (errorContainer) {
+            errors.forEach(function (err) {
+              const li = document.createElement('li');
+              li.textContent = err;
+              errorContainer.appendChild(li);
+            });
+          }
+          return;
+        }
+
+        // Simulate successful submission
+        const submitBtn = form.querySelector('button[type="submit"]');
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending...';
+        }
+
+        setTimeout(function () {
+          if (successContainer) {
+            successContainer.classList.add('is-visible');
+            successContainer.innerHTML =
+              '<p>Thank you, ' + (name ? name.value.trim() : 'friend') + '! Your booking request has been received. We\'ll confirm your appointment within 24 hours.</p>';
+          }
+          form.reset();
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Book Appointment';
+          }
+        }, 1200);
+      });
+    }
+  }
+
+  // ── Sticky CTA ─────────────────────────────────────────────
+  function initStickyCTA() {
+    const cta = document.getElementById('sticky-cta');
+    if (!cta) return;
+
     let ticking = false;
 
-    function updateHeader() {
-      const currentScroll = window.pageYOffset;
+    function updateCTA() {
+      const scrollY = window.pageYOffset;
+      const heroHeight = document.getElementById('hero')
+        ? document.getElementById('hero').offsetHeight
+        : 600;
 
-      if (currentScroll > 50) {
-        header.classList.add('is-scrolled');
+      if (scrollY > heroHeight) {
+        cta.classList.add('is-visible');
       } else {
-        header.classList.remove('is-scrolled');
+        cta.classList.remove('is-visible');
       }
-
-      // Hide/show header on scroll direction
-      if (currentScroll > lastScroll && currentScroll > 200) {
-        header.classList.add('is-hidden');
-      } else {
-        header.classList.remove('is-hidden');
-      }
-
-      lastScroll = currentScroll;
       ticking = false;
     }
 
-    window.addEventListener(
-      'scroll',
-      function () {
-        if (!ticking) {
-          window.requestAnimationFrame(updateHeader);
-          ticking = true;
-        }
-      },
-      { passive: true }
-    );
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(updateCTA);
+        ticking = true;
+      }
+    }, { passive: true });
   }
 
-  // ── Bootstrap ──────────────────────────────────────────────────────────────
+  // ── Boot ───────────────────────────────────────────────────
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
