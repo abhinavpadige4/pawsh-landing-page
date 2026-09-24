@@ -1,8 +1,8 @@
 {
-  "name": "app",
+  "name": "pawsh-dog-grooming-salon",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "echo 'build ok'"
+    "build": "echo 'Static site build complete'"
   }
 }
