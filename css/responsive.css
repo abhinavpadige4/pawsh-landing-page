@@ -1,0 +1,608 @@
+/* Responsive Styles for Pawsh Dog Grooming Salon */
+/* Breakpoints: 640px, 768px, 1024px */
+
+/* ============================================
+   Mobile First — Base adjustments for small screens
+   ============================================ */
+
+@media screen and (max-width: 640px) {
+  /* Typography */
+  html {
+    font-size: 14px;
+  }
+
+  h1, .hero__title {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  h2, .section__title {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  h3, .service__title, .pricing__title {
+    font-size: 1.15rem;
+  }
+
+  p, .hero__subtitle, .service__description, .pricing__description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* Header & Navigation */
+  .header {
+    padding: 0.75rem 1rem;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    gap: 0.25rem;
+    width: 100%;
+  }
+
+  .nav__link {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .nav__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 1.25rem;
+  }
+
+  .nav__list--hidden {
+    display: none;
+  }
+
+  .nav__list--visible {
+    display: flex;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .hero__content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .hero__image {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .hero__image img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+  }
+
+  .hero__cta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .hero__cta .btn {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+
+  /* Services Section */
+  .services {
+    padding: 2rem 1rem;
+  }
+
+  .services__grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .service__card {
+    padding: 1.25rem;
+  }
+
+  .service__icon {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+  }
+
+  /* Gallery Section */
+  .gallery {
+    padding: 2rem 1rem;
+  }
+
+  .gallery__grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .gallery__item {
+    aspect-ratio: 4 / 3;
+  }
+
+  .gallery__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius);
+  }
+
+  /* Pricing Section */
+  .pricing {
+    padding: 2rem 1rem;
+  }
+
+  .pricing__grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .pricing__card {
+    padding: 1.25rem;
+  }
+
+  .pricing__price {
+    font-size: 1.75rem;
+  }
+
+  .pricing__features {
+    font-size: 0.85rem;
+  }
+
+  .pricing__features li {
+    padding: 0.35rem 0;
+  }
+
+  /* Contact Section */
+  .contact {
+    padding: 2rem 1rem;
+  }
+
+  .contact__wrapper {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact__info {
+    width: 100%;
+  }
+
+  .contact__form {
+    width: 100%;
+  }
+
+  .form__group {
+    margin-bottom: 0.75rem;
+  }
+
+  .form__input,
+  .form__textarea,
+  .form__select {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .form__textarea {
+    min-height: 100px;
+  }
+
+  .form__submit {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 1.5rem 1rem;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    text-align: center;
+  }
+
+  .footer__col {
+    text-align: center;
+  }
+
+  .footer__links {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .footer__social {
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .footer__bottom {
+    text-align: center;
+    font-size: 0.8rem;
+  }
+
+  /* Buttons */
+  .btn {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  /* Section spacing */
+  .section {
+    padding: 2rem 0;
+  }
+
+  .section__header {
+    margin-bottom: 1.25rem;
+  }
+
+  .section__header p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ============================================
+   Tablet — 641px to 768px
+   ============================================ */
+
+@media screen and (min-width: 641px) and (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+
+  h1, .hero__title {
+    font-size: 2.25rem;
+  }
+
+  h2, .section__title {
+    font-size: 1.75rem;
+  }
+
+  /* Header */
+  .header {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .nav__list {
+    gap: 0.5rem;
+  }
+
+  .nav__link {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .hero__content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .hero__image {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .hero__cta {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  /* Services */
+  .services {
+    padding: 3rem 1.5rem;
+  }
+
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  /* Gallery */
+  .gallery {
+    padding: 3rem 1.5rem;
+  }
+
+  .gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  /* Pricing */
+  .pricing {
+    padding: 3rem 1.5rem;
+  }
+
+  .pricing__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  /* Contact */
+  .contact {
+    padding: 3rem 1.5rem;
+  }
+
+  .contact__wrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 2rem 1.5rem;
+  }
+
+  .footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .footer__bottom {
+    text-align: center;
+  }
+}
+
+/* ============================================
+   Desktop — 769px to 1024px
+   ============================================ */
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+
+  h1, .hero__title {
+    font-size: 2.75rem;
+  }
+
+  h2, .section__title {
+    font-size: 2rem;
+  }
+
+  /* Header */
+  .header {
+    padding: 1rem 2rem;
+  }
+
+  .nav__link {
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 4rem 2rem;
+  }
+
+  .hero__content {
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .hero__image {
+    max-width: 450px;
+  }
+
+  /* Services */
+  .services {
+    padding: 4rem 2rem;
+  }
+
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* Gallery */
+  .gallery {
+    padding: 4rem 2rem;
+  }
+
+  .gallery__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  /* Pricing */
+  .pricing {
+    padding: 4rem 2rem;
+  }
+
+  .pricing__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* Contact */
+  .contact {
+    padding: 4rem 2rem;
+  }
+
+  .contact__wrapper {
+    flex-direction: row;
+    gap: 3rem;
+  }
+
+  .contact__info {
+    flex: 1;
+  }
+
+  .contact__form {
+    flex: 1;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 2.5rem 2rem;
+  }
+
+  .footer__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* ============================================
+   Large Desktop — 1025px and above
+   ============================================ */
+
+@media screen and (min-width: 1025px) {
+  html {
+    font-size: 16px;
+  }
+
+  h1, .hero__title {
+    font-size: 3.25rem;
+  }
+
+  h2, .section__title {
+    font-size: 2.25rem;
+  }
+
+  /* Header */
+  .header {
+    padding: 1rem 3rem;
+  }
+
+  .nav__link {
+    font-size: 1rem;
+    padding: 0.5rem 1.25rem;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 5rem 3rem;
+  }
+
+  .hero__content {
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .hero__image {
+    max-width: 500px;
+  }
+
+  /* Services */
+  .services {
+    padding: 5rem 3rem;
+  }
+
+  .services__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* Gallery */
+  .gallery {
+    padding: 5rem 3rem;
+  }
+
+  .gallery__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+
+  /* Pricing */
+  .pricing {
+    padding: 5rem 3rem;
+  }
+
+  .pricing__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  /* Contact */
+  .contact {
+    padding: 5rem 3rem;
+  }
+
+  .contact__wrapper {
+    flex-direction: row;
+    gap: 4rem;
+  }
+
+  .contact__info {
+    flex: 1;
+  }
+
+  .contact__form {
+    flex: 1.2;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 3rem 3rem;
+  }
+
+  .footer__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* ============================================
+   Utility: Hide mobile toggle on larger screens
+   ============================================ */
+
+@media screen and (min-width: 769px) {
+  .nav__toggle {
+    display: none;
+  }
+
+  .nav__list {
+    display: flex !important;
+  }
+}
+
+/* ============================================
+   Reduced motion preference
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
