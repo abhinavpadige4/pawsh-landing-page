@@ -1,1 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300"><defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F6E05E" stop-opacity="0.3"/><stop offset="100%" stop-color="#6B46C1" stop-opacity="0.15"/></linearGradient></defs><rect width="400" height="300" fill="url(#bg)" rx="8"/><circle cx="200" cy="140" r="70" fill="#F9FAFB" stroke="#6B46C1" stroke-width="3"/><ellipse cx="200" cy="155" rx="45" ry="40" fill="#D4A574"/><ellipse cx="200" cy="170" rx="30" ry="22" fill="#F5E6D3"/><circle cx="180" cy="140" r="6" fill="#1F2937"/><circle cx="220" cy="140" r="6" fill="#1F2937"/><circle cx="182" cy="138" r="2" fill="#fff"/><circle cx="222" cy="138" r="2" fill="#fff"/><ellipse cx="200" cy="160" rx="8" ry="5" fill="#EC4899"/><path d="M192 168 Q200 175 208 168" stroke="#1F2937" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="165" cy="115" rx="18" ry="25" fill="#C4956A" transform="rotate(-15 165 115)"/><ellipse cx="235" cy="115" rx="18" ry="25" fill="#C4956A" transform="rotate(15 235 115)"/><path d="M155 100 Q160 90 170 95" stroke="#8B6914" stroke-width="2" fill="none"/><path d="M245 100 Q240 90 230 95" stroke="#8B6914" stroke-width="2" fill="none"/><path d="M170 195 Q175 210 185 205" stroke="#C4956A" stroke-width="8" fill="none" stroke-linecap="round"/><path d="M230 195 Q225 210 215 205" stroke="#C4956A" stroke-width="8" fill="none" stroke-linecap="round"/><path d="M185 200 Q200 215 215 200" stroke="#C4956A" stroke-width="8" fill="none" stroke-linecap="round"/><g transform="translate(50,200) rotate(-30)"><rect x="0" y="0" width="60" height="8" rx="4" fill="#6B46C1"/><rect x="0" y="0" width="60" height="3" rx="1.5" fill="#8B5CF6"/><line x1="5" y1="8" x2="5" y2="14" stroke="#6B46C1" stroke-width="1.5"/><line x1="12" y1="8" x2="12" y2="14" stroke="#6B46C1" stroke-width="1.5"/><line x1="19" y1="8" x2="19" y2="14" stroke="#6B46C1" stroke-width="1.5"/><line x1="26" y1="8" x2="26" y2="14" stroke="#6B46C1" stroke-width="1.5"/><line x1="33" y1="8" x2="33" y2="14" stroke="#6B46C1" stroke-width="1.5"/><line x1="40" y1="8" x2="40" y2="14" stroke="#6B46C1" stroke-width="1.5"/><line x1="47" y1="8" x2="47" y2="14" stroke="#6B46C1" stroke-width="1.5"/><line x1="54" y1="8" x2="54" y2="14" stroke="#6B46C1" stroke-width="1.5"/></g><g transform="translate(290,180) rotate(20)"><path d="M0 0 L15 -20 L20 -20 L5 0 Z" fill="#9CA3AF"/><path d="M5 0 L20 -20 L25 -20 L10 0 Z" fill="#D1D5DB"/><rect x="-2" y="0" width="14" height="30" rx="3" fill="#6B46C1"/><rect x="0" y="2" width="10" height="26" rx="2" fill="#8B5CF6"/></g><g transform="translate(310,220) rotate(45)"><path d="M0 0 L20 5 L18 10 L-2 5 Z" fill="#EC4899"/><path d="M20 5 L35 2 L37 7 L22 10 Z" fill="#EC4899"/><line x1="10" y1="2.5" x2="10" y2="7.5" stroke="#fff" stroke-width="1"/></g><circle cx="80" cy="60" r="4" fill="#F6E05E" opacity="0.8"/><circle cx="320" cy="50" r="3" fill="#EC4899" opacity="0.6"/><circle cx="350" cy="80" r="5" fill="#6B46C1" opacity="0.3"/><circle cx="60" cy="250" r="3" fill="#F6E05E" opacity="0.7"/><circle cx="340" cy="260" r="4" fill="#EC4899" opacity="0.5"/><text x="200" y="280" text-anchor="middle" font-family="Poppins, sans-serif" font-size="14" font-weight="600" fill="#6B46C1">Full Groom</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F6E05E;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#6B46C1;stop-opacity:0.15"/>
+    </linearGradient>
+    <linearGradient id="dogFur" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4A574"/>
+      <stop offset="100%" style="stop-color:#A0714F"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bg)" rx="8"/>
+  <!-- Grooming table -->
+  <rect x="60" y="200" width="280" height="12" fill="#6B46C1" rx="4"/>
+  <rect x="80" y="212" width="8" height="60" fill="#4C1D95"/>
+  <rect x="312" y="212" width="8" height="60" fill="#4C1D95"/>
+  <!-- Dog body -->
+  <ellipse cx="200" cy="170" rx="70" ry="40" fill="url(#dogFur)"/>
+  <!-- Dog head -->
+  <circle cx="260" cy="130" r="35" fill="url(#dogFur)"/>
+  <!-- Dog ears -->
+  <ellipse cx="240" cy="100" rx="12" ry="20" fill="#8B5E3C" transform="rotate(-15 240 100)"/>
+  <ellipse cx="280" cy="100" rx="12" ry="20" fill="#8B5E3C" transform="rotate(15 280 100)"/>
+  <!-- Dog eyes -->
+  <circle cx="250" cy="125" r="4" fill="#1F2937"/>
+  <circle cx="270" cy="125" r="4" fill="#1F2937"/>
+  <circle cx="251" cy="124" r="1.5" fill="white"/>
+  <circle cx="271" cy="124" r="1.5" fill="white"/>
+  <!-- Dog nose -->
+  <ellipse cx="260" cy="140" rx="6" ry="4" fill="#1F2937"/>
+  <!-- Dog mouth -->
+  <path d="M255 145 Q260 152 265 145" stroke="#1F2937" stroke-width="1.5" fill="none"/>
+  <!-- Dog tail -->
+  <path d="M135 160 Q110 130 120 110" stroke="url(#dogFur)" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <!-- Dog legs -->
+  <rect x="155" y="195" width="12" height="10" fill="#8B5E3C" rx="3"/>
+  <rect x="230" y="195" width="12" height="10" fill="#8B5E3C" rx="3"/>
+  <!-- Groomer hand with scissors -->
+  <circle cx="100" cy="120" r="15" fill="#FDBCB4"/>
+  <rect x="95" y="130" width="10" height="25" fill="#FDBCB4" rx="3"/>
+  <!-- Scissors -->
+  <line x1="105" y1="155" x2="130" y2="170" stroke="#9CA3AF" stroke-width="2.5"/>
+  <line x1="105" y1="155" x2="125" y2="175" stroke="#9CA3AF" stroke-width="2.5"/>
+  <circle cx="103" cy="153" r="4" fill="none" stroke="#9CA3AF" stroke-width="2"/>
+  <circle cx="107" cy="157" r="4" fill="none" stroke="#9CA3AF" stroke-width="2"/>
+  <!-- Sparkles indicating clean/groomed -->
+  <text x="160" y="90" font-size="16" fill="#EC4899">✦</text>
+  <text x="300" y="80" font-size="12" fill="#EC4899">✦</text>
+  <text x="140" y="140" font-size="10" fill="#F6E05E">✦</text>
+  <text x="320" y="160" font-size="14" fill="#F6E05E">✦</text>
+  <!-- Label -->
+  <rect x="120" y="250" width="160" height="30" fill="#6B46C1" rx="15"/>
+  <text x="200" y="270" font-family="Poppins, sans-serif" font-size="13" font-weight="600" fill="white" text-anchor="middle">Full Groom</text>
+</svg>
